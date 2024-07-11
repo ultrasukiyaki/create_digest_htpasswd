@@ -8,24 +8,24 @@
 $path = "/path/to/.htdigest";
  
 // Common realms
-$realm = array(
-    0 => "This contents can join at Administrators only.",
-    1 => "Members only.",
-);
+$realm = [
+    "This contents can join at Administrators only.",
+    "Members only."
+];
   
 // Login users setting
-$users = array(
-    0=>array(
+$users = [
+    [
         "name"     => "admin",
         "realm"    => $realm[0],
         "password" => "adminpassword",
-    ),
-    1=>array(
+    ],
+    [
         "name" => "member",
         "realm" => $realm[1],
         "password" => "memberpassword",
-    ),
-);
+    ]
+];
  // Create Crypted password
 foreach ($users as $val)
 {
@@ -36,4 +36,3 @@ foreach ($users as $val)
 $fp = @fopen($path,"w");
 @($fp,implode("\n",$put)."\n");
 @fclose($fp);
-
